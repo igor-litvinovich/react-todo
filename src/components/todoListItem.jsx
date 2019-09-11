@@ -6,8 +6,15 @@ import ListItemText from '@material-ui/core/ListItemText/ListItemText';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction/ListItemSecondaryAction';
 import IconButton from '@material-ui/core/IconButton/IconButton';
 import CommentIcon from '@material-ui/icons/Comment';
+import { useStateValue } from 'src/context/state';
+import { updateItemStatus } from 'src/context/actions/todoItemsActions';
 
-export default function ToDoListItem({ value, isChecked, handleClick }) {
+export default function ToDoListItem({ value, isChecked }) {
+    const dispatch = useStateValue()[1];
+    const handleClick = (updatedItem) => {
+        dispatch(updateItemStatus(updatedItem));
+    };
+
     return (
         <ListItem>
             <ListItemIcon>
@@ -15,7 +22,6 @@ export default function ToDoListItem({ value, isChecked, handleClick }) {
                     edge="start"
                     checked={isChecked}
                     tabIndex={-1}
-                    inputProps={{ 'aria-labelledby': 1 }}
                     onChange={event => handleClick({ value, isChecked: event.target.checked })}
                 />
             </ListItemIcon>

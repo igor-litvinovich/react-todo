@@ -3,18 +3,19 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import { useStateValue } from 'src/context/state';
+
 const TodoInfo = () => {
     const classes = useStyles();
-    const [{todoItems}] = useStateValue();
-
+    const [{ todoItems }] = useStateValue();
+    const doneItems = todoItems.filter(item => item.isChecked);
     return (
         <div className={classes.root}>
             <Typography variant="h2" gutterBottom>
                 Information
             </Typography>
-            <span>Done:</span>
+            {doneItems.length ? <div> Done: </div> : null}
             {
-                todoItems.filter(item => item.isChecked).map(item => (
+                doneItems.map(item => (
                     <Chip
                         size="small"
                         label={item.value}

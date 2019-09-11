@@ -12,6 +12,7 @@ const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
+        flexWrap:'wrap',
         maxWidth: '750px',
         margin: '0 auto'
     }
