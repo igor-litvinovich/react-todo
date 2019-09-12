@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import ToDoList from './components/todoList';
 import { StateProvider } from './context/state';
 import todoItems from './constants/listItems';

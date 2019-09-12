@@ -17,6 +17,7 @@ const ToDoList = () => {
 
     const handleCreateClick = () => {
         dispatch(createItem({ value: newItemValue, isChecked: false }));
+        changeNewItemValue('');
     }
 
     const handleNewItemInputChange = (event) => {
@@ -24,7 +25,7 @@ const ToDoList = () => {
     }
 
     return (
-        <div>
+        <div className={classes.list}>
             <List className={classes.root}>
                 {
                     items.map(({ isChecked, value }, index) => {
@@ -39,6 +40,7 @@ const ToDoList = () => {
                     id="new-item"
                     label="New Item"
                     margin="normal"
+                    value={newItemValue}
                     onChange={handleNewItemInputChange}
                     variant="outlined"
                 />
@@ -63,6 +65,9 @@ const useStyles = makeStyles(theme => ({
     controls: {
         display: 'flex',
         flexDirection: 'row'
+    },
+    list: {
+        maxWidth: 302
     }
 }));
 
