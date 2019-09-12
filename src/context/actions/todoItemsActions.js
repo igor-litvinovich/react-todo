@@ -5,4 +5,18 @@ const updateItemStatus = (newItem) => {
     };
 };
 
-export { updateItemStatus };
+const createItem = (itemToCreate) => {
+    return {
+        type: 'CREATE_ITEM',
+        payload: itemToCreate
+    };
+};
+
+const deleteItem = (itemValue) => {
+    return {
+        type: 'DELETE_ITEM',
+        payload: itemValue
+    };
+};
+
+export { updateItemStatus, createItem, deleteItem };

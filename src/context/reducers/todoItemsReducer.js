@@ -7,6 +7,10 @@ const todoItemsReducer = (todoItems, action) => {
                 }
                 return item;
             });
+        case 'CREATE_ITEM':
+            return todoItems.concat(action.payload);
+        case 'DELETE_ITEM':
+            return todoItems.filter(item => item.value !== action.payload);
         default:
             return todoItems;
     }

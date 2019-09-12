@@ -15,8 +15,9 @@ const TodoInfo = () => {
             </Typography>
             {doneItems.length ? <div> Done: </div> : null}
             {
-                doneItems.map(item => (
+                doneItems.map((item, index) => (
                     <Chip
+                        key={index}
                         size="small"
                         label={item.value}
                         className={classes.chip}
