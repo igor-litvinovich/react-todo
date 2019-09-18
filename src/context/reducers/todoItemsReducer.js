@@ -11,7 +11,6 @@ const todoItemsReducer = (todoItems, action) => {
             return todoItems.concat(action.payload);
         case 'DELETE_ITEM':
             return todoItems.filter(item => item.value !== action.payload);
-
         case 'UPDATE_ITEM':
             return todoItems.map((item) => {
                 if (item.value === action.payload.oldValue) {

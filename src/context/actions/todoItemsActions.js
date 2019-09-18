@@ -19,11 +19,11 @@ const deleteItem = (itemValue) => {
     };
 };
 
-const updateItem = ({ oldValue, newItemValue }) => {
+const updateItem = ({oldValue, newItemValue}) => {
     return {
         type: 'UPDATE_ITEM',
-        payload: { oldValue, newItemValue }
+        payload: {oldValue, newItemValue}
     };
-}
+};
 
-export { updateItemStatus, createItem, deleteItem, updateItem };
+export {updateItemStatus, createItem, deleteItem, updateItem};

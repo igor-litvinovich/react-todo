@@ -2,11 +2,21 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
-import { useStateValue } from 'src/context/state';
+import { useTodoListState } from 'src/context/state/toDoListState';
+
+const useStyles = makeStyles(theme => ({
+    root: {
+        width: '100%',
+        maxWidth: 300
+    },
+    chip: {
+        margin: theme.spacing(1)
+    }
+}));
 
 const TodoInfo = () => {
     const classes = useStyles();
-    const [{ todoItems }] = useStateValue();
+    const { todoItems } = useTodoListState();
     const doneItems = todoItems.filter(item => item.isChecked);
     return (
         <div className={classes.root}>
@@ -29,15 +39,5 @@ const TodoInfo = () => {
         </div>
     );
 };
-
-const useStyles = makeStyles(theme => ({
-    root: {
-        width: '100%',
-        maxWidth: 300
-    },
-    chip: {
-        margin: theme.spacing(1)
-    }
-}));
 
 export default TodoInfo;

@@ -1,20 +1,19 @@
 import React from 'react';
-import ToDoList from './components/todoList';
-import { StateProvider } from './context/state';
-import todoItems from './constants/listItems';
-import rootReducer from 'src/context/reducers/rootReducer';
-import TodoInfo from 'src/components/todoInfo';
-import { makeStyles } from '@material-ui/core';
+import TodoList from 'src/components/TodoList';
+import TodoInfo from 'src/components/TodoInfo';
+import {makeStyles} from '@material-ui/core';
+import {ToDoListStateProvider} from "./context/state/toDoListState";
+
 
 function App() {
     const classes = useStyles();
     return (
-        <StateProvider initialState={{ todoItems }} reducer={rootReducer}>
+        <ToDoListStateProvider>
             <div className={classes.root}>
-                <ToDoList/>
+                <TodoList/>
                 <TodoInfo/>
             </div>
-        </StateProvider>
+        </ToDoListStateProvider>
     );
 }
 
@@ -23,7 +22,7 @@ const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        flexWrap:'wrap',
+        flexWrap: 'wrap',
         maxWidth: '750px',
         margin: '0 auto'
     }
